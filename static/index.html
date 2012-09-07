@@ -1,0 +1,24 @@
+<html>
+  <head>
+  	<script type="text/javascript" src="jquery.js"></script>          
+    <script type="text/javascript">
+
+function poll() {
+  $.get("/x", {}, function(xml) {
+  	   setTimeout(function() {poll()}, 0);
+       // format and output result
+       $("#res").html(
+         xml
+       );
+     });	
+}
+
+$(document).ready(function() {
+  poll();
+});
+    </script> 
+  </head>
+  <body>
+  	<h1 id="res">Hello, World!</h1>
+  </body>
+</html>
